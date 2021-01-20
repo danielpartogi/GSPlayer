@@ -83,10 +83,6 @@ extension VideoDownloaderHandler: VideoDownloaderSessionDelegateHandlerDelegate 
     }
     
     func urlSession(_ session: URLSession, dataTask: URLSessionDataTask, didReceive response: URLResponse, completionHandler: @escaping (URLSession.ResponseDisposition) -> Void) {
-        guard
-            let mimeType = response.mimeType,
-            mimeType.hasPrefix("video/")
-            else { completionHandler(.cancel); return }
         
         delegate?.handler(self, didReceive: response)
         
